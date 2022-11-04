@@ -3,7 +3,9 @@
 const Histogram = (props) => {
 
     return (
-        <div></div>
+        <div>
+            
+        </div>
     )
 }
 

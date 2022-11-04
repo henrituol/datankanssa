@@ -17,7 +17,10 @@ const Dashboard = () => {
     }
 
     // AnalysisBlock sends a value in props to AnalysisBlock.js
-    // whereuopn props value is placed on {props.visualizationType}
+    // whereupon props value is placed on {props.visualizationType}
+
+    // I'd like to try to pass multiple props to AnalysisBlock.
+    // How was it done?
     return(
         <div className =  "mainAnalysis">
             <h2 style = {headingStyle} >Dashboard</h2>

@@ -1,3 +1,9 @@
+import Histogram from "./Histogram";
+
+// This component is called in Dashboard.
+// From dashboard we get props: visualizationType and data.
+// props.data will be further send to Histogram.js
+
 const AnalysisBlock = (props) => {
 
     let analysisBlockStyle = {
@@ -19,6 +25,7 @@ const AnalysisBlock = (props) => {
             <div className="analysisBlock" style={analysisBlockStyle}>
                 <p style = {analysisBlockParagraphStyle}>
                     This should be a histogram!</p>
+                <Histogram dataToHistogram = {props.data}/>
             </div>
         )
 
