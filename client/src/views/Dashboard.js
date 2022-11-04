@@ -16,12 +16,14 @@ const Dashboard = (props) => {
         marginLeft: 40
     }
 
+    // AnalysisBlock sends a value in props to AnalysisBlock.js
+    // whereuopn props value is placed on {props.visualizationType}
     return(
         <div class =  "mainAnalysis">
             <h2 style = {headingStyle} >Dashboard</h2>
             <p style = {paragraphStyle} >The analysis blocks will show up here.</p>
-            <AnalysisBlock />
-            <AnalysisBlock />
+            <AnalysisBlock visualizationType = "pie chart" />
+            <AnalysisBlock visualizationType = "histogram" />
         </div>
 
     )

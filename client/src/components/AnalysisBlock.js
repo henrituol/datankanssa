@@ -7,9 +7,15 @@ const AnalysisBlock = (props) => {
         backgroundColor: "#E6E6E3"
     }
 
+    let analysisBlockParagraphStyle = {
+        padding: 5,
+        margin: 5
+    }
+
     return(
 		<div class="analysisBlock" style={analysisBlockStyle}>
-            <p>Hello World!</p>
+            <p style = {analysisBlockParagraphStyle}>
+                Type of this block: {props.visualizationType}</p>
 		</div>
 	)
 }
