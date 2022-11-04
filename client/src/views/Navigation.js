@@ -52,15 +52,6 @@ const Navigation = () => {
                     </NavDropdown>
 
                 </Nav>
-                <Form className="d-flex">
-                    <Form.Control
-                    type="search"
-                    placeholder="Data, author etc."
-                    className="me-2"
-                    aria-label="Search"
-                    />
-                    <Button variant="outline-success">Search</Button>
-                </Form>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
