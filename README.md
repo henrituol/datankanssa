@@ -1,8 +1,8 @@
 # datankanssa
-BI suite for working with data (a full stack exercise)
+A BI suite for working with data (a full stack exercise)
 
 Objectives:
-- Frontend (React or Vue)
+- Frontend (React)
 - Backend (Express)
 - Database (MongoDB)
 - User control, login (Passport.js)
