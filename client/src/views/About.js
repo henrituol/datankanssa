@@ -4,7 +4,7 @@ const About = (props) => {
     return(
         <div>
             <h2>About page</h2>
-            <p>Lorem ipsum</p>
+            <p>"Datankanssa – A Business Intelligence Suite" is a MERN stack exercise by Henri Pitkänen</p>
             <NavLink className="nav-link" to="/">
             Back to home
             </NavLink> 
