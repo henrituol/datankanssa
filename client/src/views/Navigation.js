@@ -3,9 +3,6 @@ import React from "react";
 // For better looks Bootsrap:
 import "bootstrap/dist/css/bootstrap.css";
 import {Nav, Navbar, Container, NavDropdown} from 'react-bootstrap'; 
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-
 import { NavLink, useNavigate } from "react-router-dom";
 
 // Create navbar
