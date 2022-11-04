@@ -1,14 +1,30 @@
 import AnalysisBlock from "../components/AnalysisBlock";
 
-const Home = (props) => {
+const Dashboard = (props) => {
+
+    // These stylings should probably be done in CSS stylesheet.
+    // Otherwise different views may have wildly different looks.
+    const headingStyle = {
+        fontFamily: "sans-serif",
+		fontWeight: "bold",
+		padding: 20,
+        marginLeft: 20
+    }
+
+    const paragraphStyle = {
+        fontFamily: "sans-serif",
+        marginLeft: 40
+    }
+
     return(
-        <div>
-            <h2>Dashboard</h2>
-            <p>Analysis blocks will show up here.</p>
+        <div class =  "mainAnalysis">
+            <h2 style = {headingStyle} >Dashboard</h2>
+            <p style = {paragraphStyle} >The analysis blocks will show up here.</p>
+            <AnalysisBlock />
             <AnalysisBlock />
         </div>
 
     )
 }
 
-export default Home;
+export default Dashboard;

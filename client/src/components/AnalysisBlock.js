@@ -1,8 +1,9 @@
-const AnalysisBlock = () => {
+const AnalysisBlock = (props) => {
 
     let analysisBlockStyle = {
         height: 300, 
-        width: 200,
+        width: 250,
+        margin: 40,
         backgroundColor: "#E6E6E3"
     }
 
