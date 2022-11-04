@@ -18,15 +18,25 @@ const Dashboard = () => {
 
     // AnalysisBlock sends a value in props to AnalysisBlock.js
     // whereupon props value is placed on {props.visualizationType}
+    // Then again, is Dashboard even the right component to give this values?
 
     // I'd like to try to pass multiple props to AnalysisBlock.
     // How was it done?
+    const analysisElement = {
+        type: "text",
+        props: {
+            visualizationType: "histogram",
+            data: "cool values"
+        }
+    }
+
     return(
         <div className =  "mainAnalysis">
             <h2 style = {headingStyle} >Dashboard</h2>
             <p style = {paragraphStyle} >The analysis blocks will show up here.</p>
             <AnalysisBlock visualizationType = "pie chart" />
-            <AnalysisBlock visualizationType = "histogram" />
+            <AnalysisBlock data = "klaatu" />
+            <AnalysisBlock />
         </div>
 
     )
