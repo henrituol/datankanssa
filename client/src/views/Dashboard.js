@@ -19,7 +19,7 @@ const Dashboard = () => {
     // AnalysisBlock sends a value in props to AnalysisBlock.js
     // whereuopn props value is placed on {props.visualizationType}
     return(
-        <div class =  "mainAnalysis">
+        <div className =  "mainAnalysis">
             <h2 style = {headingStyle} >Dashboard</h2>
             <p style = {paragraphStyle} >The analysis blocks will show up here.</p>
             <AnalysisBlock visualizationType = "pie chart" />
