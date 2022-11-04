@@ -1,4 +1,4 @@
-const Appearance = (props) => {
+const Appearance = () => {
     return(
         <div>
             <h2>Appearance</h2>

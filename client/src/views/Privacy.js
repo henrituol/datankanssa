@@ -1,4 +1,4 @@
-const Privacy = (props) => {
+const Privacy = () => {
     return(
         <div>
             <h2>Privacy</h2>

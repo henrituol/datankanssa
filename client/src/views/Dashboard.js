@@ -1,6 +1,6 @@
 import AnalysisBlock from "../components/AnalysisBlock";
 
-const Dashboard = (props) => {
+const Dashboard = () => {
 
     // These stylings should probably be done in CSS stylesheet.
     // Otherwise different views may have wildly different looks.
