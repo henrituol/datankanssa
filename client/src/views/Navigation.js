@@ -23,8 +23,6 @@ const Navigation = () => {
                 <Nav className="me-auto">
                     <NavLink className="nav-link" to="/">Dashboard</NavLink> 
                     <NavLink className="nav-link" to="/about">About</NavLink>
-                    <NavLink className="nav-link" to="/create">Create</NavLink>
-                    <NavLink className="nav-link" to="/recordlist">Record list</NavLink>
 
                     <NavDropdown title="Settings" id="basic-nav-dropdown"
                         onSelect={ (eventKey) => {
