@@ -19,16 +19,22 @@ const AnalysisBlock = (props) => {
     }
 
 
-    return(
-        <div className="analysisBlock" style={analysisBlockStyle}>
-            <p style = {analysisBlockParagraphStyle}>
-                Type of this block: {props.visualizationType}</p>
-            <p style = {analysisBlockParagraphStyle}>
-            Data of this block: {props.data}</p>
-        </div>
-    )
-    
 
+    // Conditional rendering depending on the type of visualization.
+    if (props.visualizationType === "histogram") {
+        return (
+            <Histogram data = {props.data} />
+        )
+    } else {
+        return (
+            <div className="analysisBlock" style={analysisBlockStyle}>
+                <p style = {analysisBlockParagraphStyle}>
+                    Type of this block: {props.visualizationType}</p>
+                <p style = {analysisBlockParagraphStyle}>
+                Data of this block: {props.data}</p>
+            </div>
+        )
+    }
 
 }
 
