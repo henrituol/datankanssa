@@ -20,7 +20,6 @@ const Dashboard = () => {
     // whereupon props value is placed on {props.visualizationType}
     // Then again, is Dashboard even the right component to give these values?
 
-
     let tempPercentageData = [20, 15, 15, 45, 5];
     let tempHistogramData = [875, 456, 677, 654];
 
