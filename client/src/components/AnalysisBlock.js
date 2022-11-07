@@ -18,26 +18,16 @@ const AnalysisBlock = (props) => {
         margin: 5
     }
 
-    if (props.visualizationType === "histogram") {
-        console.log("We will call histogram.js here.");
 
-        return(
-            <div className="analysisBlock" style={analysisBlockStyle}>
-                <p style = {analysisBlockParagraphStyle}>
-                    This should be a histogram!</p>
-                <Histogram dataToHistogram = {props.data}/>
-            </div>
-        )
-
-    } else {
-
-        return(
-            <div className="analysisBlock" style={analysisBlockStyle}>
-                <p style = {analysisBlockParagraphStyle}>
-                    Type of this block: {props.visualizationType}</p>
-            </div>
-        )
-    }
+    return(
+        <div className="analysisBlock" style={analysisBlockStyle}>
+            <p style = {analysisBlockParagraphStyle}>
+                Type of this block: {props.visualizationType}</p>
+            <p style = {analysisBlockParagraphStyle}>
+            Data of this block: {props.data}</p>
+        </div>
+    )
+    
 
 
 }
