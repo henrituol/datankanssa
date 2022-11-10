@@ -1,4 +1,4 @@
-// Props could be the data we want to visualize.
+import * as d3 from "d3";
 
 const Histogram = (props) => {
     console.log(props)
