@@ -7,7 +7,8 @@ const Dashboard = () => {
     // Then again, is Dashboard even the right component to give these values?
 
     let tempPercentageData = [20, 15, 15, 45, 5];
-    let tempHistogramData = [875, 456, 677, 654];
+    // Dummy data. Could be, e.g., customer satisfaction reviews on likert scale.
+    let tempHistogramData = [1, 1, 1, 2, 2, 3, 4, 4, 4, 4, 5, 5, 5];
 
     return(
         <div className =  "mainAnalysis">
