@@ -16,8 +16,9 @@ import SignOut from './views/SignOut';
  
 const App = () => {
  return (
-   <div>
-     <Navigation />
+  <>
+   <Navigation />
+   <div className='appWrapper'>
      <Routes>
        <Route exact path="/" element={<Dashboard />} />
        <Route path="/about" element={<About />} />
@@ -27,6 +28,7 @@ const App = () => {
        <Route path="/sign-out" element={<SignOut />} />
      </Routes>
    </div>
+   </>
  );
 };
  

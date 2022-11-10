@@ -9,28 +9,23 @@ const AnalysisBlock = (props) => {
     let analysisBlockStyle = {
         height: 300, 
         width: 250,
-        margin: 40,
+        margin: 5,
         backgroundColor: "#E6E6E3"
     }
-
-    let analysisBlockParagraphStyle = {
-        padding: 5,
-        margin: 5
-    }
-
-
 
     // Conditional rendering depending on the type of visualization.
     if (props.visualizationType === "histogram") {
         return (
-            <Histogram data = {props.data} />
+            <div className="analysisBlock" style={analysisBlockStyle}>
+                <Histogram data = {props.data} />
+            </div>
         )
     } else {
         return (
             <div className="analysisBlock" style={analysisBlockStyle}>
-                <p style = {analysisBlockParagraphStyle}>
+                <p>
                     Type of this block: {props.visualizationType}</p>
-                <p style = {analysisBlockParagraphStyle}>
+                <p>
                 Data of this block: {props.data}</p>
             </div>
         )
