@@ -23,10 +23,11 @@ const AnalysisBlock = (props) => {
     } else {
         return (
             <div className="analysisBlock" style={analysisBlockStyle}>
-                <p>
-                    Type of this block: {props.visualizationType}</p>
-                <p>
-                Data of this block: {props.data}</p>
+                <p>Type of this block: {props.visualizationType}</p>
+                <p>Data of this block: {props.data[0]}</p>
+                <p>{props.data[1]}</p>
+                <p>{props.data[2]}</p>
+                <p>{props.data[3]}</p>
             </div>
         )
     }
