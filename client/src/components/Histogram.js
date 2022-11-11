@@ -8,7 +8,7 @@ function Histogram(props) {
     width = 250 - margin.left - margin.right,
     height = 200 - margin.top - margin.bottom;
 
-    // Depending on wheteher button has been clicked or not, show or hide the histogram.
+    // Depending on wheteher the button has been clicked or not, show or hide the histogram.
     let historgramIsHidden = true;
     const activateD3 = () => {
         if (historgramIsHidden === true) {
@@ -17,7 +17,7 @@ function Histogram(props) {
             d3.selectAll("#histogramText").style("color", "blue");
             d3.select(".histogram").append("p").attr("id", "helloId").text("Hello!");
 
-            // append the svg object to the histogram div.
+            // Add the svg object to the histogram div.
             const svg = d3.select(".histogram")
             .append("svg")
                 .attr("width", width + margin.left + margin.right)
@@ -30,11 +30,15 @@ function Histogram(props) {
 
             // X axis: scale and draw:
             const xAxis = d3.scaleLinear()
-                .domain([1, 5]) // These hard-coded values ought to be changed.
+                .domain([0, 7]) // These hard-coded values ought to be changed.
                 .range([0, (width*0.9)]);
             svg.append("g")
                 .attr("transform", `translate(0, ${height})`)
-                .call(d3.axisBottom(xAxis).ticks(5)); // Without ticks(), histogram would show 1.5, 2.5 etc.
+                //.call(d3.axisBottom(xAxis).ticks(5)); // Without ticks(), histogram would show 1.5, 2.5 etc.
+                    // Apparently, d3.js ticks() also does something funky where it tries to force number of ticks depending on the... domain? Data?
+                    // How about specifying ticks manually?
+                .call(d3.axisBottom(xAxis).ticks(5).tickValues([1, 2, 3, 4, 5]));
+
 
             // set the parameters for the histogram
             const histogram = d3.bin()
@@ -59,7 +63,6 @@ function Histogram(props) {
                     .attr("width", function(d) { return xAxis(d.x1) - xAxis(d.x0) -1})
                     .attr("height", function(d) { return height - yAxis(d.length); })
                     .style("fill", "blue")
-
 
         } else {
             d3.selectAll("#histogramText").style("color", "black");
