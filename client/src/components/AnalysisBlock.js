@@ -1,4 +1,4 @@
-import Histogram from "./Histogram";
+import BarGraph from "./BarGraph";
 
 // This component is called in Dashboard.
 // From dashboard we get props: visualizationType and data.
@@ -17,7 +17,7 @@ const AnalysisBlock = (props) => {
     if (props.visualizationType === "histogram") {
         return (
             <div className="analysisBlock" style={analysisBlockStyle}>
-                <Histogram data = {props.data} />
+                <BarGraph data = {props.data} />
             </div>
         )
     } else {
