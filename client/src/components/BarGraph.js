@@ -32,6 +32,12 @@ function BarGraph(props) {
                 // Apparently, d3.js ticks() also does something funky where it tries to force number of ticks depending on the... domain? Data?
                 // How about specifying ticks manually?
             .call(d3.axisBottom(xAxis).ticks(5).tickValues([1, 2, 3, 4, 5]));
+        svg.append("text")
+            .attr("class", "x label")
+            .attr("text-anchor", "end")
+            .attr("x", width)
+            .attr("y", height + 30)
+            .text("Customer satisfaction");
 
         // set the parameters for the bargraph
         const bargraph = d3.bin()
@@ -46,6 +52,14 @@ function BarGraph(props) {
             .domain([0, 4]); // These hard-coded values ought to be changed.
         svg.append("g")
             .call(d3.axisLeft(yAxis).ticks(4));
+
+
+        svg.append("text")
+            .attr("class", "y label")
+            .attr("text-anchor", "end")
+            .attr("x", -20)
+            .attr("y", 5)
+            .text("n");
 
         // Add the bar rectangles to the svg element
         svg.selectAll("rect")
