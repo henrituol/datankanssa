@@ -1,5 +1,6 @@
 import BarGraphWithButton from "./BarGraphWithButton";
 import BarGraph from "./BarGraph";
+import PieChart from "./PieChart";
 
 // This component is called in Dashboard.
 // From dashboard we get props: visualizationType and data.
@@ -19,6 +20,12 @@ const AnalysisBlock = (props) => {
         return (
             <div className="analysisBlock" style={analysisBlockStyle}>
                 <BarGraph data = {props.data} />
+            </div>
+        )
+    } else if (props.visualizationType === "piechart") {
+        return (
+            <div className="analysisBlock" style={analysisBlockStyle}>
+            <PieChart data = {props.data} />
             </div>
         )
     } else {
