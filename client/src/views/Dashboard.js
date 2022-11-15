@@ -1,4 +1,5 @@
 import AnalysisBlock from "../components/AnalysisBlock";
+import EmptyBlock from "../components/EmptyBlock";
 
 const Dashboard = () => {
 
@@ -14,6 +15,7 @@ const Dashboard = () => {
         <div className =  "mainAnalysis">
             <h2>Dashboard</h2>
             <p>The analysis blocks will show up here.</p>
+            <EmptyBlock />
             <AnalysisBlock visualizationType = "piechart" data = {tempPercentageData} />
             <AnalysisBlock visualizationType = "bargraph" data = {tempBarGraphData} />
         </div>
