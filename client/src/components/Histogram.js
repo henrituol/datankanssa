@@ -30,7 +30,7 @@ function Histogram(props) {
 
             // X axis: scale and draw:
             const xAxis = d3.scaleLinear()
-                .domain([0, 7]) // These hard-coded values ought to be changed.
+                .domain([0, 6]) // These hard-coded values ought to be changed.
                 .range([0, (width*0.9)]);
             svg.append("g")
                 .attr("transform", `translate(0, ${height})`)
@@ -46,6 +46,7 @@ function Histogram(props) {
 
             // And apply this function to data to get the bins
             const bins = histogram(props.data);
+            console.log(bins);
 
             // Y axis: scale and draw:
             const yAxis = d3.scaleLinear()
@@ -58,11 +59,11 @@ function Histogram(props) {
             svg.selectAll("rect")
                 .data(bins)
                 .join("rect")
-                    .attr("x", 1)
+                    .attr("x", -13) // X pixels left/right related to the tick. N.B. xAxis.domain changes the width.
                 .attr("transform", function(d) { return `translate(${xAxis(d.x0)} , ${yAxis(d.length)})`})
                     .attr("width", function(d) { return xAxis(d.x1) - xAxis(d.x0) -1})
                     .attr("height", function(d) { return height - yAxis(d.length); })
-                    .style("fill", "blue")
+                    .style("fill", "#45b6fe");
 
         } else {
             d3.selectAll("#histogramText").style("color", "black");
