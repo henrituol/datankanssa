@@ -13,9 +13,6 @@ function BarGraph(props) {
         if (historgramIsHidden === true) {
             historgramIsHidden = false;
 
-            d3.selectAll("#bargraphText").style("color", "blue");
-            d3.select(".bargraph").append("p").attr("id", "helloId").text("Hello!");
-
             // Add the svg object to the bargraph div.
             const svg = d3.select(".bargraph")
             .append("svg")
@@ -76,9 +73,6 @@ function BarGraph(props) {
     return (
         <div className="bargraph">
             <button onClick={activateD3}>Show/hide bar graph</button>
-            <p id="bargraphText">
-                Raw data: {props.data}
-            </p>
         </div>
     );
 
