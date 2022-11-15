@@ -19,23 +19,19 @@ const AnalysisBlock = (props) => {
     if (props.visualizationType === "bargraph") {
         return (
             <div className="analysisBlock" style={analysisBlockStyle}>
-                <BarGraph data = {props.data} />
+                <BarGraph data = {props.data} name = {"Demonstration bar graph"} />
             </div>
         )
     } else if (props.visualizationType === "piechart") {
         return (
             <div className="analysisBlock" style={analysisBlockStyle}>
-            <PieChart data = {props.data} />
+            <PieChart data = {props.data} name = {"Demonstration pie chart"} />
             </div>
         )
     } else {
         return (
             <div className="analysisBlock" style={analysisBlockStyle}>
-                <p>Type of this block: {props.visualizationType}</p>
-                <p>Data of this block: {props.data[0]}</p>
-                <p>{props.data[1]}</p>
-                <p>{props.data[2]}</p>
-                <p>{props.data[3]}</p>
+                <p>Did you specify a proper type for visualization?</p>
             </div>
         )
     }

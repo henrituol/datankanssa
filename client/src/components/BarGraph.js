@@ -77,7 +77,7 @@ function BarGraph(props) {
 
     return (
         <div className="bargraph">
-            <p>Title of the bar graph</p>
+            <p>{props.name}</p>
         </div>
     );
 }

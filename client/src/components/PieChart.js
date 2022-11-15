@@ -67,7 +67,7 @@ function PieChart(props) {
 
     return (
         <div className="piechart">
-            <p>Title of the pie chart</p>
+            <p>{props.name}</p>
         </div>
     );
 }
