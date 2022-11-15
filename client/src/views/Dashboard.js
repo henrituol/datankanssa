@@ -14,7 +14,7 @@ const Dashboard = () => {
         <div className =  "mainAnalysis">
             <h2>Dashboard</h2>
             <p>The analysis blocks will show up here.</p>
-            <AnalysisBlock visualizationType = "pie chart" data = {tempPercentageData} />
+            <AnalysisBlock visualizationType = "piechart" data = {tempPercentageData} />
             <AnalysisBlock visualizationType = "bargraph" data = {tempBarGraphData} />
         </div>
 
