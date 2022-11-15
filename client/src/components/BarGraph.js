@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
 
+// Starting point for histogram:
+// https://d3-graph-gallery.com/graph/histogram_basic.html
+
 function BarGraph(props) {
 
     // useEffect is run after everything else is done.
