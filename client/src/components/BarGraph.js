@@ -9,7 +9,7 @@ function BarGraph(props) {
 
     // Depending on whether the button has been clicked or not, show or hide the bargraph.
     let bargraphIsHidden = true;
-    const activateD3 = () => {
+    const activateBarGraph = () => {
         if (bargraphIsHidden === true) {
             bargraphIsHidden = false;
 
@@ -64,7 +64,7 @@ function BarGraph(props) {
         } else {
             d3.selectAll("#bargraphText").style("color", "black");
             d3.select("#helloId").remove("p");
-            d3.select("#histrogramAsSVG").remove("svg");
+            d3.select("#bargraphAsSVG").remove("svg");
             
             bargraphIsHidden = true;
         }
@@ -72,7 +72,7 @@ function BarGraph(props) {
 
     return (
         <div className="bargraph">
-            <button onClick={activateD3}>Show/hide bar graph</button>
+            <button onClick={activateBarGraph}>Show/hide bar graph</button>
             <p></p>
         </div>
     );
