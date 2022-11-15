@@ -8,14 +8,14 @@ const Dashboard = () => {
 
     let tempPercentageData = [20, 15, 15, 45, 5];
     // Dummy data. Could be, e.g., customer satisfaction reviews on likert scale.
-    let tempHistogramData = [1, 1, 1, 2, 2, 3, 4, 4, 4, 4, 5, 5, 5];
+    let tempBarGraphData = [1, 1, 1, 2, 2, 3, 4, 4, 4, 4, 5, 5, 5];
 
     return(
         <div className =  "mainAnalysis">
             <h2>Dashboard</h2>
             <p>The analysis blocks will show up here.</p>
             <AnalysisBlock visualizationType = "pie chart" data = {tempPercentageData} />
-            <AnalysisBlock visualizationType = "histogram" data = {tempHistogramData} />
+            <AnalysisBlock visualizationType = "bargraph" data = {tempBarGraphData} />
         </div>
 
     )

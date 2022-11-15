@@ -14,7 +14,7 @@ const AnalysisBlock = (props) => {
     }
 
     // Conditional rendering depending on the type of visualization.
-    if (props.visualizationType === "histogram") {
+    if (props.visualizationType === "bargraph") {
         return (
             <div className="analysisBlock" style={analysisBlockStyle}>
                 <BarGraph data = {props.data} />
