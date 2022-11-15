@@ -62,8 +62,6 @@ function BarGraph(props) {
                     .style("fill", "#45b6fe");
 
         } else {
-            d3.selectAll("#bargraphText").style("color", "black");
-            d3.select("#helloId").remove("p");
             d3.select("#bargraphAsSVG").remove("svg");
             
             bargraphIsHidden = true;
