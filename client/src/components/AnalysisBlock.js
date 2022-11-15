@@ -1,3 +1,4 @@
+import BarGraphWithButton from "./BarGraphWithButton";
 import BarGraph from "./BarGraph";
 
 // This component is called in Dashboard.
