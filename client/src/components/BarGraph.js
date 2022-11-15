@@ -7,18 +7,18 @@ function BarGraph(props) {
     width = 270 - margin.left - margin.right,
     height = 250 - margin.top - margin.bottom;
 
-    // Depending on wheteher the button has been clicked or not, show or hide the bargraph.
-    let historgramIsHidden = true;
+    // Depending on whether the button has been clicked or not, show or hide the bargraph.
+    let bargraphIsHidden = true;
     const activateD3 = () => {
-        if (historgramIsHidden === true) {
-            historgramIsHidden = false;
+        if (bargraphIsHidden === true) {
+            bargraphIsHidden = false;
 
             // Add the svg object to the bargraph div.
             const svg = d3.select(".bargraph")
             .append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
-                .attr("id", "histrogramAsSVG")
+                .attr("id", "bargraphAsSVG")
                 .append("g")
                     .attr("transform",
                     `translate(${margin.left},${margin.top})`);
@@ -66,7 +66,7 @@ function BarGraph(props) {
             d3.select("#helloId").remove("p");
             d3.select("#histrogramAsSVG").remove("svg");
             
-            historgramIsHidden = true;
+            bargraphIsHidden = true;
         }
     }
 
