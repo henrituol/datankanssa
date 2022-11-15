@@ -4,8 +4,8 @@ function BarGraph(props) {
 
     // set the dimensions and margins of the graph
     const margin = {top: 5, right: 30, bottom: 30, left: 40},
-    width = 250 - margin.left - margin.right,
-    height = 200 - margin.top - margin.bottom;
+    width = 270 - margin.left - margin.right,
+    height = 250 - margin.top - margin.bottom;
 
     // Depending on wheteher the button has been clicked or not, show or hide the bargraph.
     let historgramIsHidden = true;
@@ -73,6 +73,7 @@ function BarGraph(props) {
     return (
         <div className="bargraph">
             <button onClick={activateD3}>Show/hide bar graph</button>
+            <p></p>
         </div>
     );
 
