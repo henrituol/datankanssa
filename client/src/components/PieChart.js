@@ -6,6 +6,16 @@ import * as d3 from "d3";
 
 function PieChart(props) {
 
+    // Create a unique ID for a div, so that d3js visualization can be matched with the proper container.
+    let divId = Math.floor(Math.random() * 99999);
+    // Let's make sure the ID is unique.
+    if (document.getElementById(divId) !== null) {
+        while (document.getElementById(divId) !== null) {
+            divId = Math.floor(Math.random() * 99999);
+        }
+    }
+    let uniqueDiv = "Id" + divId;
+
     // useEffect is run after everything else is done.
     // I.e. pie chart div is returned, then d3.js is used to draw graph inside the div.
     useEffect(() => {
@@ -19,7 +29,7 @@ function PieChart(props) {
         const radius = Math.min(width, height) / 2 - margin;
 
         // append the svg object to the div called 'my_dataviz'
-        const svg = d3.select(".piechart")
+        const svg = d3.select("#" + uniqueDiv)
         .append("svg")
             .attr("width", width)
             .attr("height", height)
@@ -66,7 +76,7 @@ function PieChart(props) {
     }, []);
 
     return (
-        <div className="piechart">
+        <div className="piechart" id={uniqueDiv}>
             <p>{props.name}</p>
         </div>
     );

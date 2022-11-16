@@ -17,7 +17,7 @@ const ShowView = () => {
     document.querySelector(".EmptyBlock").remove();
     return (
         <>
-            <AnalysisBlock visualizationType = "bargraph" data = {tempData} />
+            <AnalysisBlock visualizationType = "piechart" data = {tempData} />
             <EmptyBlock />
         </>
     );
