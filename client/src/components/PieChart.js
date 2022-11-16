@@ -38,7 +38,7 @@ function PieChart(props) {
 
         // Create dummy data
         const data = props.data;
-        console.log(data);
+        //console.log(data);
 
         // set the color scale
         const color = d3.scaleOrdinal()

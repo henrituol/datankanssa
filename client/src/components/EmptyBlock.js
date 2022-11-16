@@ -71,7 +71,7 @@ const ShowOptions = () => {
 // Third, create a new analysis block and another empty block.
 const NewAnalysisBlock = (props) => {
 
-    console.log(props.type);
+    //console.log(props.type);
 
     let tempData = [];
 
