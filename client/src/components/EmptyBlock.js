@@ -58,7 +58,7 @@ const ShowOptions = () => {
     return (
         <>
             <div className="Options" style={analysisBlockStyle}>
-                <p>Guidance</p>
+                <p>Select a visualization type:</p>
                 <button onClick={() => setNewPieChart(true)}>Pie chart</button>
                 <button onClick={() => setNewBarGraph(true)}>Bar graph</button>
             </div>
