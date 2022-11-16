@@ -8,22 +8,8 @@ import AnalysisBlock from "./AnalysisBlock"
 
 // Is it bad to have to components in one file even though they work together?
 // Also, this is just a helper component not to be used from anywhere else.
-const ShowView = () => {
 
-    let tempData = [45, 5, 20, 25, 5];
-
-    // Remove the empty block. We'll render another component in its place
-    // and create a new EmptyBlock.
-    document.querySelector(".EmptyBlock").remove();
-    return (
-        <>
-            <AnalysisBlock visualizationType = "piechart" data = {tempData} />
-            <EmptyBlock />
-        </>
-    );
-}
-
-
+// First, create an empty block.
 const EmptyBlock = () => {
 
     let analysisBlockStyle = {
@@ -34,18 +20,83 @@ const EmptyBlock = () => {
     }
 
     const [show, setShow] = useState(false);
-
+    
     return (
         <>
             <div className="EmptyBlock" style={analysisBlockStyle}>
                 <p>Press + to add an analysis view.</p>
                 <button onClick={() => setShow(true)}>+</button>
             </div>
-            {show && <ShowView />}
+            {show && <ShowOptions />}
         </>
 
     )
-
 }
+
+// Second, when button is pushed, show options.
+const ShowOptions = () => {
+
+    let analysisBlockStyle = {
+        height: 300, 
+        width: 250,
+        margin: 5,
+        backgroundColor: "#dcd5d5"
+    }
+
+    // Remove the empty block. We'll render another component in its place
+    // and create a new EmptyBlock.
+
+    // Without this "if", EmptyBlock is tried to remove multiple times,
+    // hence, resulting to null error.
+    if (document.querySelector(".EmptyBlock") !== null) {
+        document.querySelector(".EmptyBlock").remove();
+    }
+    
+    const [newPieChart, setNewPieChart] = useState(false);
+    const [newBarGraph, setNewBarGraph] = useState(false);
+
+    return (
+        <>
+            <div className="Options" style={analysisBlockStyle}>
+                <p>Guidance</p>
+                <button onClick={() => setNewPieChart(true)}>Pie chart</button>
+                <button onClick={() => setNewBarGraph(true)}>Bar graph</button>
+            </div>
+            {newPieChart && <NewAnalysisBlock type = "piechart"/>}
+            {newBarGraph && <NewAnalysisBlock type = "bargraph"/>}
+        </>
+    )
+}
+
+// Third, create a new analysis block and another empty block.
+const NewAnalysisBlock = (props) => {
+
+    console.log(props.type);
+
+    let tempData = [];
+
+    if (props.type === "piechart") {
+        tempData = [45, 5, 20, 25, 5];
+    } else {
+        tempData = [1, 1, 1, 2, 2, 3, 4, 4, 4, 4, 5, 5, 5];
+    }
+
+    // Remove the options block. We'll render another component in its place
+    // and create a new EmptyBlock.
+
+    if (document.querySelector(".Options") !== null) {
+        document.querySelector(".Options").remove();
+    }
+
+    return (
+        <>
+            <AnalysisBlock visualizationType = {props.type} data = {tempData} />
+            <EmptyBlock />
+        </>
+    );
+}
+
+
+
 
 export default EmptyBlock
