@@ -1,14 +1,12 @@
 import BarGraph from "./BarGraph";
 import PieChart from "./PieChart";
 
+// Import helper function
+import { blockBackgroundStyle } from "./utils";
+
 const AnalysisBlock = (props) => {
 
-    let analysisBlockStyle = {
-        height: 300, 
-        width: 300,
-        margin: 5,
-        backgroundColor: "#E6E6E3"
-    }
+    let analysisBlockStyle = blockBackgroundStyle ();
 
     // Conditional rendering depending on the type of visualization.
     switch (props.visualizationType) {
