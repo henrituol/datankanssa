@@ -23,7 +23,8 @@ function PieChart(props) {
         // set the dimensions and margins of the graph
         const width = 250,
             height = 250,
-            margin = 10;
+            margin = 10,
+            style = "margin-left: 25px";
 
         // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
         const radius = Math.min(width, height) / 2 - margin;
@@ -33,6 +34,7 @@ function PieChart(props) {
         .append("svg")
             .attr("width", width)
             .attr("height", height)
+            .attr("style", style)
         .append("g")
             .attr("transform", `translate(${width/2}, ${height/2})`);
 
