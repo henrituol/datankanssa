@@ -1,20 +1,15 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
 
+// Import helper function
+import { uniqueIdCreator } from "./utils";
+
 // Pie chart code:
 // https://d3-graph-gallery.com/graph/pie_basic.html 
 
 function PieChart(props) {
 
-    // Create a unique ID for a div, so that d3js visualization can be matched with the proper container.
-    let divId = Math.floor(Math.random() * 99999);
-    // Let's make sure the ID is unique.
-    if (document.getElementById(divId) !== null) {
-        while (document.getElementById(divId) !== null) {
-            divId = Math.floor(Math.random() * 99999);
-        }
-    }
-    let uniqueDiv = "Id" + divId;
+    let uniqueDiv = uniqueIdCreator();
 
     // useEffect is run after everything else is done.
     // I.e. pie chart div is returned, then d3.js is used to draw graph inside the div.
