@@ -1,4 +1,3 @@
-import BarGraphWithButton from "./BarGraphWithButton";
 import BarGraph from "./BarGraph";
 import PieChart from "./PieChart";
 
