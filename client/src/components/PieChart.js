@@ -64,7 +64,7 @@ function PieChart(props) {
         .style("stroke-width", "1px")
         .style("opacity", 0.7)
 
-
+        /* Names on top of the slices. E.g. group 0, group 1 etc.
         svg.selectAll('mySlices')
         .data(data_ready)
         .join('text')
@@ -72,6 +72,7 @@ function PieChart(props) {
         .attr("transform", function(d) { return `translate(${arcGenerator.centroid(d)})`})
         .style("text-anchor", "middle")
         .style("font-size", 17)
+        */
 
     }, []);
 
