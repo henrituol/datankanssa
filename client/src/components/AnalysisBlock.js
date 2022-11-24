@@ -5,7 +5,7 @@ const AnalysisBlock = (props) => {
 
     let analysisBlockStyle = {
         height: 300, 
-        width: 250,
+        width: 300,
         margin: 5,
         backgroundColor: "#E6E6E3"
     }

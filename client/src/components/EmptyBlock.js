@@ -14,7 +14,7 @@ const EmptyBlock = () => {
 
     let analysisBlockStyle = {
         height: 300, 
-        width: 250,
+        width: 300,
         margin: 5,
         backgroundColor: "#dcd5d5"
     }
@@ -38,7 +38,7 @@ const ShowOptions = () => {
 
     let analysisBlockStyle = {
         height: 300, 
-        width: 250,
+        width: 300,
         margin: 5,
         backgroundColor: "#dcd5d5"
     }
