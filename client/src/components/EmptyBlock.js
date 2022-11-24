@@ -1,6 +1,9 @@
 import { useState } from "react";
 import AnalysisBlock from "./AnalysisBlock"
 
+// Import helper function
+import { blockBackgroundStyle } from "./utils";
+
 // When a button is pushed, a new view should appear.
 // In the new view, you can select the type of visualization and data.
 // However, in this first version: click +-button and render something with dummy data.
@@ -12,12 +15,7 @@ import AnalysisBlock from "./AnalysisBlock"
 // First, create an empty block.
 const EmptyBlock = () => {
 
-    let analysisBlockStyle = {
-        height: 300, 
-        width: 300,
-        margin: 5,
-        backgroundColor: "#dcd5d5"
-    }
+    let analysisBlockStyle = blockBackgroundStyle ();
 
     const [show, setShow] = useState(false);
     
@@ -36,12 +34,7 @@ const EmptyBlock = () => {
 // Second, when button is pushed, show options.
 const ShowOptions = () => {
 
-    let analysisBlockStyle = {
-        height: 300, 
-        width: 300,
-        margin: 5,
-        backgroundColor: "#dcd5d5"
-    }
+    let analysisBlockStyle = blockBackgroundStyle ();
 
     // Remove the empty block. We'll render another component in its place
     // and create a new EmptyBlock.
