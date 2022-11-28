@@ -58,7 +58,7 @@ function BarGraph(props) {
         // Y axis
         const yAxis = d3.scaleLinear()
             .range([height, 0])
-            .domain([0, 4]); // These hard-coded values ought to be changed.
+            .domain([0, 1000]); // These hard-coded values ought to be changed.
         svg.append("g")
             .call(d3.axisLeft(yAxis).ticks(4));
 
@@ -67,7 +67,7 @@ function BarGraph(props) {
             .attr("class", "y label")
             .attr("text-anchor", "end")
             .attr("x", -20)
-            .attr("y", 5)
+            .attr("y", 15)
             .text("n");
 
         // Add the bar rectangles to the svg element
