@@ -33,15 +33,12 @@ const EmptyBlock = () => {
 const LoadingBlock = () => {
 
     let analysisBlockStyle = blockBackgroundStyle ();
-
-    const [show, setShow] = useState(false);
     
     return (
         <>
             <div className="LoadingBlock" style={analysisBlockStyle}>
                 <p>Loading...</p>
             </div>
-            {show && <ShowOptions />}
         </>
 
     )
@@ -95,7 +92,10 @@ const NewAnalysisBlock = (props) => {
     // There use to React Suspense, but it is outdated apparently.
 
     async function loadData () {
-        return await fetch("https://hsl.louhin.com/api/1.1/data/350/content?limit=1000&variables=K3B&LWSAccessKey=b21f0e72-de32-4cee-ab24-242eeba7726b", {
+        const offset = Math.floor(Math.random() * 9);
+
+        const target = "https://hsl.louhin.com/api/1.1/data/350/content?offset=40000&limit=1000&variables=K3B&LWSAccessKey=b21f0e72-de32-4cee-ab24-242eeba7726b";
+        return await fetch( target, {
             method: 'get',
             headers: {
                 'content-type': 'text/csv;charset=UTF-8',
@@ -135,8 +135,8 @@ const NewAnalysisBlock = (props) => {
             
             const cleanedData = loadedData.split('');
 
-            console.log(cleanedData);
-            console.log([cleanedData]);
+            //console.log(cleanedData);
+            //console.log([cleanedData]);
 
             setDataFromQuery(cleanedData);
             setDataIsLoaded(true);
