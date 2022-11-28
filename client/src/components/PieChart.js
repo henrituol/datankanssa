@@ -33,9 +33,20 @@ function PieChart(props) {
         .append("g")
             .attr("transform", `translate(${width/2}, ${height/2})`);
 
-        // Create dummy data
-        const data = props.data;
-        //console.log(data);
+        // Utilize dummy data
+        // The data from previous step is absolute counts.
+        // We have to change then in to groups, i.e., count of 1, count of 2 etc.
+        // And that is the proper data for Pie Chart.
+        let data = props.data;
+        // console.log(data);
+        const counts = [];
+
+        for (const num of data) {
+          counts[num] = counts[num] ? counts[num] + 1 : 1;
+        }
+        console.log(counts);
+        data = counts;
+
 
         // set the color scale
         const color = d3.scaleOrdinal()
