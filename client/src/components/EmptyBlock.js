@@ -92,9 +92,9 @@ const NewAnalysisBlock = (props) => {
     // There use to React Suspense, but it is outdated apparently.
 
     async function loadData () {
-        const offset = Math.floor(Math.random() * 9);
+        const offset = Math.floor(Math.random() * 5);
 
-        const target = "https://hsl.louhin.com/api/1.1/data/350/content?offset=40000&limit=1000&variables=K3B&LWSAccessKey=b21f0e72-de32-4cee-ab24-242eeba7726b";
+        const target = "https://hsl.louhin.com/api/1.1/data/350/content?offset=" + offset + "0000&limit=1000&variables=K3B&LWSAccessKey=b21f0e72-de32-4cee-ab24-242eeba7726b";
         return await fetch( target, {
             method: 'get',
             headers: {
