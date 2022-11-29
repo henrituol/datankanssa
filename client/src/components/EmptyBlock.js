@@ -34,7 +34,7 @@ const EmptyBlock = () => {
         <>
             <div className="EmptyBlock" style={analysisBlockStyle}>
                 <p>Press + to add an analysis view.</p>
-                <Button className="btn btn-primary" onClick={handleShow}>+</Button>
+                <Button variant="primary" onClick={handleShow}>+</Button>
             </div>
             <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -44,10 +44,10 @@ const EmptyBlock = () => {
                 <p>Select a visualization type:</p>
                 <div className="row">
                     <div className="col">
-                        <button className="btn btn-primary" onClick={() => { setNewPieChart(true); removeEmpty(); }}>Pie chart</button>
+                        <Button variant="primary" onClick={() => { setNewPieChart(true); removeEmpty(); }}>Pie chart</Button>
                     </div>
                     <div className="col">
-                        <button className="btn btn-primary" onClick={() => { setNewBarGraph(true); removeEmpty(); }}>Bar graph</button>
+                        <Button variant="primary" onClick={() => { setNewBarGraph(true); removeEmpty(); }}>Bar graph</Button>
                     </div>
                 </div>
             </Modal.Body>
