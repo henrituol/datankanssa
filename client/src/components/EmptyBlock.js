@@ -144,12 +144,6 @@ const NewAnalysisBlock = (props) => {
         })();
     }, []);
 
-    // Remove the options block. We'll render another component in its place
-    // and create a new EmptyBlock.
-    if (document.querySelector(".Options") !== null) {
-        document.querySelector(".Options").remove();
-    }
-
     return (
         <>
             {!dataIsLoaded && <LoadingBlock />}
