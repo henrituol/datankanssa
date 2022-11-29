@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Modal, Button} from 'react-bootstrap';
 import AnalysisBlock from "./AnalysisBlock"
 
-// Is it bad to have to components in one file even though they work together?
+// Is it bad to have multiple components in one file even though they work together?
 // Also, this is just a kind of helper component not to be used from anywhere else.
 
 // Import helper function
@@ -23,8 +23,7 @@ const EmptyBlock = () => {
     const [newPieChart, setNewPieChart] = useState(false);
     const [newBarGraph, setNewBarGraph] = useState(false);
 
-    
-    // Modal might work in this situation.
+    // Modal might be suitable solution for showing options.
     // Starting off from this tutorial:
     // https://ordinarycoders.com/blog/article/react-bootstrap-modal
     const [show, setShow] = useState(false);
@@ -35,7 +34,7 @@ const EmptyBlock = () => {
         <>
             <div className="EmptyBlock" style={analysisBlockStyle}>
                 <p>Press + to add an analysis view.</p>
-                <Button className="nextButton" onClick={handleShow}>+</Button>
+                <Button className="btn btn-primary" onClick={handleShow}>+</Button>
             </div>
             <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -43,25 +42,25 @@ const EmptyBlock = () => {
             </Modal.Header>
             <Modal.Body>
                 <p>Select a visualization type:</p>
-                <button onClick={() => { setNewPieChart(true); removeEmpty() }}>Pie chart</button>
-                <button onClick={() => { setNewBarGraph(true); removeEmpty() }}>Bar graph</button>
+                <div className="row">
+                    <div className="col">
+                        <button className="btn btn-primary" onClick={() => { setNewPieChart(true); removeEmpty(); }}>Pie chart</button>
+                    </div>
+                    <div className="col">
+                        <button className="btn btn-primary" onClick={() => { setNewBarGraph(true); removeEmpty(); }}>Bar graph</button>
+                    </div>
+                </div>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button variant="success" onClick={handleClose}>
                 Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                Close, but blue
                 </Button>
             </Modal.Footer>
             </Modal>
             {newPieChart && <NewAnalysisBlock type = "piechart"/>}
             {newBarGraph && <NewAnalysisBlock type = "bargraph"/>}
         </>
-
     );
-
-
 }
 
 // A helper component for the next section.
