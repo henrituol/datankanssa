@@ -59,7 +59,7 @@ const EmptyBlock = () => {
                 <div className="row">
                     <Form.Select aria-label="Select visualization type" 
                         onChange={valueOfSelection => {
-                            console.log("Value of the selection", valueOfSelection.target.value);
+                            // console.log("Value of the selection", valueOfSelection.target.value);
                             switch (valueOfSelection.target.value) {
                                 case "1":
                                     pieSelected.current = true; 
