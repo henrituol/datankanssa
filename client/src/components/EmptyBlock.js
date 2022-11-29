@@ -1,80 +1,82 @@
 import { useState, useEffect } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Modal, Button} from 'react-bootstrap';
 import AnalysisBlock from "./AnalysisBlock"
-
-// Import helper function
-import { blockBackgroundStyle } from "./utils";
-
-// When a button is pushed, a new view should appear.
-// In the new view, you can select the type of visualization and data.
-// However, in this first version: click +-button and render something with dummy data.
 
 // Is it bad to have to components in one file even though they work together?
 // Also, this is just a kind of helper component not to be used from anywhere else.
 
-// First, create an empty block.
+// Import helper function
+import { blockBackgroundStyle } from "./utils";
+
+// Let's create another helper to make following code slightly more compact:
+// When an analysis block with visualisation is created, clear the empty block.
+function removeEmpty () {
+    document.querySelector(".EmptyBlock").remove();
+}
+
+// Create an empty block and a modal window for options.
 const EmptyBlock = () => {
 
     let analysisBlockStyle = blockBackgroundStyle ();
-
-    const [show, setShow] = useState(false);
     
+    const [newPieChart, setNewPieChart] = useState(false);
+    const [newBarGraph, setNewBarGraph] = useState(false);
+
+    
+    // Modal might work in this situation.
+    // Starting off from this tutorial:
+    // https://ordinarycoders.com/blog/article/react-bootstrap-modal
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <>
             <div className="EmptyBlock" style={analysisBlockStyle}>
                 <p>Press + to add an analysis view.</p>
-                <button onClick={() => setShow(true)}>+</button>
+                <Button className="nextButton" onClick={handleShow}>+</Button>
             </div>
-            {show && <ShowOptions />}
+            <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+                <Modal.Title>Choose data and visualization</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>Select a visualization type:</p>
+                <button onClick={() => { setNewPieChart(true); removeEmpty() }}>Pie chart</button>
+                <button onClick={() => { setNewBarGraph(true); removeEmpty() }}>Bar graph</button>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                Close, but blue
+                </Button>
+            </Modal.Footer>
+            </Modal>
+            {newPieChart && <NewAnalysisBlock type = "piechart"/>}
+            {newBarGraph && <NewAnalysisBlock type = "bargraph"/>}
         </>
 
-    )
+    );
+
+
 }
 
+// A helper component for the next section.
 const LoadingBlock = () => {
-
     let analysisBlockStyle = blockBackgroundStyle ();
-    
     return (
         <>
             <div className="LoadingBlock" style={analysisBlockStyle}>
                 <p>Loading...</p>
             </div>
         </>
-
     )
 }
 
-// Second, when button is pushed, show options.
-const ShowOptions = () => {
-
-    let analysisBlockStyle = blockBackgroundStyle ();
-
-    // Remove the empty block. We'll render another component in its place
-    // and create a new EmptyBlock.
-
-    // Without this "if", EmptyBlock is tried to remove multiple times,
-    // hence, resulting to null error.
-    if (document.querySelector(".EmptyBlock") !== null) {
-        document.querySelector(".EmptyBlock").remove();
-    }
-    
-    const [newPieChart, setNewPieChart] = useState(false);
-    const [newBarGraph, setNewBarGraph] = useState(false);
-
-    return (
-        <>
-            <div className="Options" style={analysisBlockStyle}>
-                <p>Select a visualization type:</p>
-                <button onClick={() => setNewPieChart(true)}>Pie chart</button>
-                <button onClick={() => setNewBarGraph(true)}>Bar graph</button>
-            </div>
-            {newPieChart && <NewAnalysisBlock type = "piechart"/>}
-            {newBarGraph && <NewAnalysisBlock type = "bargraph"/>}
-        </>
-    )
-}
-
-// Third, create a new analysis block and another empty block.
+// Next, create a new analysis block and another empty block.
 const NewAnalysisBlock = (props) => {
 
     // When dataIsLoaded is true, render bargraph with proper data.
