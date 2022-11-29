@@ -39,10 +39,19 @@ const EmptyBlock = () => {
         handleClose(); // Close like in the cancel button, but also update rendering according to selections.
         if ( pieSelected.current === true ) {
             setNewPieChart(true); removeEmpty();
-        }
-        if ( barSelected.current === true ) {
+        } else if ( barSelected.current === true ) {
             setNewBarGraph(true); removeEmpty();
+        } else {
+            alert("Did you remeber to specify visualization type?");
         }
+    }
+
+    // If user makes a selection, then presses cancel, selected value ought to be cleared.
+    // Otherwise the user could come back to the modal window, and without selection just press
+    // "Add" and, surprise, a previous selection would work.
+    const cleanSelections = () => {
+        pieSelected.current = false; 
+        barSelected.current = false; 
     }
 
     return (
@@ -81,7 +90,7 @@ const EmptyBlock = () => {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="success" onClick={handleAdd}>Add</Button>
-                <Button variant="secondary" onClick={handleClose}>Cancel</Button>
+                <Button variant="secondary" onClick={ () => {handleClose(); cleanSelections();}}>Cancel</Button>
             </Modal.Footer>
             </Modal>
             {newPieChart && <NewAnalysisBlock type = "piechart"/>}
