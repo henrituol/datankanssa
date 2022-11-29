@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Modal, Button} from 'react-bootstrap';
+import {Modal, Button, Form} from 'react-bootstrap';
 import AnalysisBlock from "./AnalysisBlock"
 
 // Is it bad to have multiple components in one file even though they work together?
@@ -20,8 +20,13 @@ const EmptyBlock = () => {
 
     let analysisBlockStyle = blockBackgroundStyle ();
     
-    const [newPieChart, setNewPieChart] = useState(false);
+    const [newPieChart, setNewPieChart] = useState(false);  // When this turns into right, we'll call another component.
     const [newBarGraph, setNewBarGraph] = useState(false);
+
+    // Note: useState is asynchronous, therefore,
+    // to check values from the form, let's utilize useRef.
+    const pieSelected = useRef(false);
+    const barSelected = useRef(false);
 
     // Modal might be suitable solution for showing options.
     // Starting off from this tutorial:
@@ -29,6 +34,16 @@ const EmptyBlock = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const handleAdd = () => {
+        handleClose(); // Close like in the cancel button, but also update rendering according to selections.
+        if ( pieSelected.current === true ) {
+            setNewPieChart(true); removeEmpty();
+        }
+        if ( barSelected.current === true ) {
+            setNewBarGraph(true); removeEmpty();
+        }
+    }
 
     return (
         <>
@@ -41,20 +56,32 @@ const EmptyBlock = () => {
                 <Modal.Title>Choose data and visualization</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>Select a visualization type:</p>
                 <div className="row">
-                    <div className="col">
-                        <Button variant="primary" onClick={() => { setNewPieChart(true); removeEmpty(); }}>Pie chart</Button>
-                    </div>
-                    <div className="col">
-                        <Button variant="primary" onClick={() => { setNewBarGraph(true); removeEmpty(); }}>Bar graph</Button>
-                    </div>
+                    <Form.Select aria-label="Select visualization type" 
+                        onChange={valueOfSelection => {
+                            console.log("Value of the selection", valueOfSelection.target.value);
+                            switch (valueOfSelection.target.value) {
+                                case "1":
+                                    pieSelected.current = true; 
+                                    barSelected.current = false;                         
+                                    break;
+                                case "2":
+                                    pieSelected.current = false;    
+                                    barSelected.current = true;
+                                    break;
+                                default:
+                                    console.log("Something went wrong!")
+                            }
+                        }}>
+                        <option>Select visualization type</option>
+                        <option value="1">Pie chart</option>
+                        <option value="2">Bar graph</option>
+                    </Form.Select>
                 </div>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="success" onClick={handleClose}>
-                Close
-                </Button>
+                <Button variant="success" onClick={handleAdd}>Add</Button>
+                <Button variant="secondary" onClick={handleClose}>Cancel</Button>
             </Modal.Footer>
             </Modal>
             {newPieChart && <NewAnalysisBlock type = "piechart"/>}
