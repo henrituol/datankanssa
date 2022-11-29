@@ -44,7 +44,7 @@ function PieChart(props) {
         for (const num of data) {
           counts[num] = counts[num] ? counts[num] + 1 : 1;
         }
-        console.log(counts);
+        // console.log(counts);
         data = counts;
 
 
