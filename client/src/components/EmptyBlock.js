@@ -140,13 +140,7 @@ const NewAnalysisBlock = (props) => {
     useEffect(()=> {
         (async () => {
             let loadedData = await loadData();
-            //console.log(typeof loadedData);
-            //console.log(loadedData);
-            // Transform values to a proper looking array.
-            // How to do it the best way? How to get proper values?
-            // Perhaps the number before line break  and "-symbol?
-            // Also, excluding the first one. Let see, if we manage to get everything in order.
-            // RegEx?
+            // Best way to clean up the textual data? RegEx?
             loadedData = loadedData.replaceAll(';', ',');
             // Let's split to a few different RegEx calls to make it easier to read.
             // Regex for a lookback and lookahead to change number between " and ", i.e. first number:
@@ -162,9 +156,6 @@ const NewAnalysisBlock = (props) => {
             loadedData = loadedData.replace('labelK3B', '');
             
             const cleanedData = loadedData.split('');
-
-            //console.log(cleanedData);
-            //console.log([cleanedData]);
 
             setDataFromQuery(cleanedData);
             setDataIsLoaded(true);
