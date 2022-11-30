@@ -18,7 +18,7 @@ function BarGraph(props) {
 
         // set the dimensions and margins of the graph
         const margin = {top: 5, right: 30, bottom: 30, left: 40},
-        width = 270 - margin.left - margin.right,
+        width = 320 - margin.left - margin.right,
         height = 250 - margin.top - margin.bottom;
 
         // Add the svg object to the div with unique idea placed in return.
@@ -74,7 +74,7 @@ function BarGraph(props) {
         svg.selectAll("rect")
             .data(bins)
             .join("rect")
-                .attr("x", -13) // X pixels left/right related to the tick. N.B. xAxis.domain changes the width!
+                .attr("x", -18) // X pixels left/right related to the tick. N.B. xAxis.domain changes the width!
             .attr("transform", function(d) { return `translate(${xAxis(d.x0)} , ${yAxis(d.length)})`})
                 .attr("width", function(d) { return xAxis(d.x1) - xAxis(d.x0) -1})
                 .attr("height", function(d) { return height - yAxis(d.length); })
