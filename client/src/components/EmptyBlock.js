@@ -24,6 +24,21 @@ const EmptyBlock = () => {
     const pieSelected = useRef(false);
     const barSelected = useRef(false);
 
+    // If user doesn't provide dates, use default values.
+    let startDate = useRef("2019-01-01");
+    let endDate = useRef("2021-12-31");
+    // Otherwise, run this function:
+    const handleDateChange = (dateType, newDate) => {
+        switch (dateType) {
+            case "start":
+                startDate.current = newDate;
+                break;
+            case "end":
+                endDate.current = newDate;
+                break;
+        }
+    }
+
     // Modal might be suitable solution for showing options.
     // Starting off from this tutorial:
     // https://ordinarycoders.com/blog/article/react-bootstrap-modal
@@ -54,6 +69,8 @@ const EmptyBlock = () => {
     // How about filtering data by date?
     // Also, might be interesting to include at least a couple of different variables. Overall satisfaction, ofcourse.
     // What else? Something that would look like somewhat different.
+    // Note about datepicker: I added somewhat arbitrary default values to enable faster testing of the app.
+    // Datepicker's format depends on the locale (language) of the browser.
     return (
         <>
             <div className="EmptyBlock" style={analysisBlockStyle}>
@@ -81,11 +98,11 @@ const EmptyBlock = () => {
                     <Form.Group controlId="dates">
                         <div className="col" style= {{ margin: "10px" }}>
                             <Form.Label>Select starting date</Form.Label>
-                            <Form.Control type="date" name="startDate"/>
+                            <Form.Control type="date" name="startDate" defaultValue="2019-01-01" onChange={ (selection) => { handleDateChange("start", selection.target.value) }}/>
                         </div>
                         <div className="col" style= {{ margin: "10px" }}>
                             <Form.Label>Select ending date</Form.Label>
-                            <Form.Control type="date" name="endDate"/>
+                            <Form.Control type="date" name="endDate" defaultValue="2021-12-31" onChange={ (selection) => { handleDateChange("end", selection.target.value) }}/>
                         </div>
                     </Form.Group>
                 </div>
