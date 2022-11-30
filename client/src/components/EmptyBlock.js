@@ -134,8 +134,8 @@ const EmptyBlock = () => {
                 <Button variant="secondary" onClick={ () => {handleClose(); cleanSelections();}}>Cancel</Button>
             </Modal.Footer>
             </Modal>
-            {newPieChart && <FetchData type = "piechart"/>}
-            {newBarGraph && <FetchData type = "bargraph"/>}
+            {newPieChart && <FetchData type = "piechart" dates = {[startDate.current, endDate.current]} />}
+            {newBarGraph && <FetchData type = "bargraph" dates = {[startDate.current, endDate.current]} />}
         </>
     );
 }
