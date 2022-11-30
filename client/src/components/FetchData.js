@@ -40,10 +40,14 @@ const FetchData = (props) => {
         const target = "https://hsl.louhin.com/api/1.1/data/350/content?limit=1000&variables=K3B&filter[PÄIVÄMÄÄRÄ]=" + startMilliseconds + "to" + endMilliseconds + "&LWSAccessKey=b21f0e72-de32-4cee-ab24-242eeba7726b";
         // It does give 200 message in Insomnia, but no data...
 
-        // Antti Vuorela said everyhting should work as it used to, but that's not how it looks like.
+        // Everything should work as it used to, but that's not how it looks like.
         // In insomnia:
         // https://hsl.louhin.com/api/1.1/data/350/content?limit=100&filter[PÄIVÄMÄÄRÄ]=1356991200000to1388527199000 this doesn't load data. Without the filter it works fine.
         // https://hsl.louhin.com/api/1.0/data/350?limit=100&filter[PÄIVÄMÄÄRÄ]=1356991200000to1388527199000 this does.
+
+        // A possible workaround might be something like this:
+        // Fetch data as a whole containing only the variable we're visualizing and dates, and afterwards filter by dates.
+        // How long does the query take? 
 
         return await fetch( target, {
             method: 'get',
