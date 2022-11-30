@@ -1,5 +1,5 @@
 # datankanssa
-A BI suite for working with data (a full stack exercise)
+A BI suite (dashboard) for working with data (a full stack exercise)
 
 Objectives:
 - Frontend (React)
