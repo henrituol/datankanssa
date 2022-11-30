@@ -64,3 +64,8 @@
 h2 {
   padding-bottom: 20px;
 }
+
+.block-description {
+  padding-top: 5px;
+  padding-left: 10px;
+}
