@@ -1,6 +1,6 @@
 import React from "react";
  
-// For better looks Bootsrap:
+// For better looks Bootstrap:
 import "bootstrap/dist/css/bootstrap.css";
 import {Nav, Navbar, Container, NavDropdown} from 'react-bootstrap'; 
 import { NavLink, useNavigate } from "react-router-dom";
