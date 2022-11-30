@@ -50,6 +50,10 @@ const EmptyBlock = () => {
         barSelected.current = false; 
     }
 
+    // In this return, a modal window is opened, where a user can select data to be visualized and the type of visualization.
+    // How about filtering data by date?
+    // Also, might be interesting to include at least a couple of different variables. Overall satisfaction, ofcourse.
+    // What else? Something that would look like somewhat different.
     return (
         <>
             <div className="EmptyBlock" style={analysisBlockStyle}>
@@ -74,6 +78,18 @@ const EmptyBlock = () => {
             </Modal.Header>
             <Modal.Body>
                 <div className="row">
+                    <Form.Group controlId="dates">
+                        <div className="col" style= {{ margin: "10px" }}>
+                            <Form.Label>Select starting date</Form.Label>
+                            <Form.Control type="date" name="startDate"/>
+                        </div>
+                        <div className="col" style= {{ margin: "10px" }}>
+                            <Form.Label>Select ending date</Form.Label>
+                            <Form.Control type="date" name="endDate"/>
+                        </div>
+                    </Form.Group>
+                </div>
+                <div className="row" style= {{ margin: "10px", marginTop: "30px" }}>
                     <Form.Select aria-label="Select visualization type" 
                         onChange={valueOfSelection => {
                             // console.log("Value of the selection", valueOfSelection.target.value);
