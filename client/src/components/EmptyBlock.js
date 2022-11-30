@@ -56,7 +56,7 @@ const EmptyBlock = () => {
                 <p className="block-description">Press + to add an analysis view.</p>
                 <Button variant="primary" 
                         id="add-button"
-                        style={{ marginLeft: "115px", 
+                        style={{ marginLeft: "102px", 
                                 marginTop: "70px",
                                 fontSize: "xxx-large",
                                 paddingLeft: "20px",
