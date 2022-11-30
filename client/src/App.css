@@ -42,3 +42,21 @@
     transform: rotate(360deg);
   }
 }
+
+/* The styles above could probably be deleted. */
+
+/* Additional style: */
+
+/* Seems like priority for class .btn-primary isn't enough to override bootstrap default. */
+/* Let's change the colors with button ID */
+#add-button {
+  background-color: rgba(107, 220, 255, 0.11);
+  border-style: dashed;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.39);
+  text-justify: auto;
+  color: black;
+}
+#add-button:hover {
+  background-color: rgba(23, 35, 39, 0.404);
+}
