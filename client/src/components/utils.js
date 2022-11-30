@@ -21,7 +21,8 @@ export function blockBackgroundStyle () {
         height: 300, 
         width: 300,
         margin: 5,
-        backgroundColor: "#E6E6E3"
+        backgroundColor: "rgba(216, 229, 242, 0.404)",
+        borderRadius: 10
     }
 
     return analysisBlockStyle;
