@@ -58,7 +58,18 @@ const EmptyBlock = () => {
         <>
             <div className="EmptyBlock" style={analysisBlockStyle}>
                 <p>Press + to add an analysis view.</p>
-                <Button variant="primary" onClick={handleShow}>+</Button>
+                <Button variant="primary" 
+                        style={{ marginLeft: "115px", 
+                                marginTop: "70px",
+                                fontSize: "xxx-large",
+                                paddingLeft: "20px",
+                                paddingRight: "20px",
+                                paddingTop: "0px",
+                                paddingBottom: "4px"
+                            }}
+                        onClick={handleShow}>
+                        + 
+                </Button>
             </div>
             <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
