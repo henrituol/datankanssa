@@ -53,7 +53,7 @@ const EmptyBlock = () => {
     return (
         <>
             <div className="EmptyBlock" style={analysisBlockStyle}>
-                <p>Press + to add an analysis view.</p>
+                <p className="block-description">Press + to add an analysis view.</p>
                 <Button variant="primary" 
                         id="add-button"
                         style={{ marginLeft: "115px", 

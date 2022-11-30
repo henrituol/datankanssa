@@ -7,7 +7,7 @@ const LoadingBlock = () => {
     return (
         <>
             <div className="LoadingBlock" style={analysisBlockStyle}>
-                <p>Loading...</p>
+                <p className="block-description">Loading...</p>
             </div>
         </>
     )

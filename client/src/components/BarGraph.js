@@ -83,7 +83,7 @@ function BarGraph(props) {
 
     return (
         <div className="bargraph" id={uniqueDiv}>
-            <p>{props.name}</p>
+            <p className="block-description">{props.name}</p>
         </div>
     );
 }

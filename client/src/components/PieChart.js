@@ -86,7 +86,7 @@ function PieChart(props) {
 
     return (
         <div className="piechart" id={uniqueDiv}>
-            <p>{props.name}</p>
+            <p className="block-description">{props.name}</p>
         </div>
     );
 }
