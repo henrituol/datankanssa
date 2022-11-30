@@ -1,5 +1,9 @@
 import * as d3 from "d3";
 
+
+// This is the older version of the bar graph.
+// To delete or not to delete?
+
 function BarGraphWithButton(props) {
 
     // set the dimensions and margins of the graph
