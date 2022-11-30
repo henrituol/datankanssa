@@ -1,9 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import LoadingBlock from "./LoadingBlock.js"
 import AnalysisBlock from "./AnalysisBlock"
 import EmptyBlock from "./EmptyBlock.js";
 
 // Next, create a new analysis block and another empty block.
+// To have meaningful visualizations, let's utilize HSL Asty customer satisfaction survey:
+// https://hsl.louhin.com/asty/
+
 const FetchData = (props) => {
 
     // When dataIsLoaded is true, render bargraph with proper data.
