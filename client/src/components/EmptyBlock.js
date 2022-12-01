@@ -25,7 +25,7 @@ const EmptyBlock = () => {
     const barSelected = useRef(false);
 
     // If user doesn't provide dates, use default values.
-    let startDate = useRef("2019-01-01");
+    let startDate = useRef("2021-01-01");
     let endDate = useRef("2021-12-31");
     // Otherwise, run this function:
     const handleDateChange = (dateType, newDate) => {
