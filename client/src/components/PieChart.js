@@ -16,8 +16,8 @@ function PieChart(props) {
     useEffect(() => {
 
         // set the dimensions and margins of the graph
-        const width = 250,
-            height = 250,
+        const width = 230,
+            height = 230,
             margin = 10,
             style = "margin-left: 25px";
 
