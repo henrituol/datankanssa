@@ -19,7 +19,7 @@ function BarGraph(props) {
         // set the dimensions and margins of the graph
         const margin = {top: 5, right: 30, bottom: 30, left: 40},
         width = 300 - margin.left - margin.right,
-        height = 240 - margin.top - margin.bottom;
+        height = 220 - margin.top - margin.bottom;
 
         // Add the svg object to the div with unique idea placed in return.
         const svg = d3.select("#" + uniqueDiv)
