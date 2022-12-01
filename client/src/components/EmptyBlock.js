@@ -16,11 +16,11 @@ const EmptyBlock = () => {
 
     let analysisBlockStyle = blockBackgroundStyle ();
     
-    const [newPieChart, setNewPieChart] = useState(false);  // When this turns into right, we'll call another component.
+    const [newPieChart, setNewPieChart] = useState(false);  // When this turns into true, we'll call another component.
     const [newBarGraph, setNewBarGraph] = useState(false);
 
     // Note: useState is asynchronous, therefore,
-    // to check values from the form, let's utilize useRef.
+    // to check values from the form right after change, let's utilize useRef.
     const pieSelected = useRef(false);
     const barSelected = useRef(false);
 
@@ -66,11 +66,9 @@ const EmptyBlock = () => {
     }
 
     // In this return, a modal window is opened, where a user can select data to be visualized and the type of visualization.
-    // How about filtering data by date?
+    // Data can be filtered by dates. (Note: Datepicker's format depends on the locale (language) of the browser.)
     // Also, might be interesting to include at least a couple of different variables. Overall satisfaction, ofcourse.
     // What else? Something that would look like somewhat different.
-    // Note about datepicker: I added somewhat arbitrary default values to enable faster testing of the app.
-    // Datepicker's format depends on the locale (language) of the browser.
     return (
         <>
             <div className="EmptyBlock" style={analysisBlockStyle}>
