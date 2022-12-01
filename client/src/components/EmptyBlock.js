@@ -98,11 +98,11 @@ const EmptyBlock = () => {
                     <Form.Group controlId="dates">
                         <div className="col" style= {{ margin: "10px" }}>
                             <Form.Label>Select starting date</Form.Label>
-                            <Form.Control type="date" name="startDate" defaultValue="2019-01-01" onChange={ (selection) => { handleDateChange("start", selection.target.value) }}/>
+                            <Form.Control type="date" name="startDate" defaultValue={startDate.current} onChange={ (selection) => { handleDateChange("start", selection.target.value) }}/>
                         </div>
                         <div className="col" style= {{ margin: "10px" }}>
                             <Form.Label>Select ending date</Form.Label>
-                            <Form.Control type="date" name="endDate" defaultValue="2021-12-31" onChange={ (selection) => { handleDateChange("end", selection.target.value) }}/>
+                            <Form.Control type="date" name="endDate" defaultValue={endDate.current} onChange={ (selection) => { handleDateChange("end", selection.target.value) }}/>
                         </div>
                     </Form.Group>
                 </div>
