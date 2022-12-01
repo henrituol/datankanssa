@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Modal, Button, Form} from 'react-bootstrap';
 import FetchData from "./FetchData.js";
