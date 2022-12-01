@@ -55,10 +55,23 @@ function BarGraph(props) {
         // And apply this function to data to get the bins
         const bins = bargraph(props.data);
 
+        // "Bins" is a nested array, where values' length is effectively the same as the count in a particular bin.
+        // We ought to check, which nested array, i.e. bin, has the highest count.
+        let maxCount = 0;
+        for (let i = 0; i < bins.length; i++ ) {
+            // console.log(bins[i].length);
+            if (bins[i].length > maxCount) {
+                maxCount = bins[i].length;
+                // console.log("The new maximum count is " + maxCount);
+            }
+        }
+        // This maxCount can be used to set bar graph's y-axis.
+        
+
         // Y axis
         const yAxis = d3.scaleLinear()
             .range([height, 0])
-            .domain([0, 1000]); // These hard-coded values ought to be changed.
+            .domain([0, maxCount]);
         svg.append("g")
             .call(d3.axisLeft(yAxis).ticks(4));
 
