@@ -25,15 +25,25 @@ const FetchData = (props) => {
     // Although API version 1.0 instructs to use milliseconds,
     // I noticed that with the API version 1.1 milliseconds do not work, but format 2011-01-01 is usable.
     // Hence, we can use the dates as is in the props.dates.
+    // Also, it seems to work even if change them to Date objects. Let's do that!
 
+    const startDate = new Date(props.dates[0]);
+    const endDate = new Date(props.dates[1]);
+
+    // For some reason Javascript getMonth() return months from 0-11, therefore, a mino fix:
+    const startMonth = startDate.getMonth() + 1;
+    const endMonth = endDate.getMonth() + 1;
+
+    // K3B is: "Overall grade for public transport services in the HSL area"
+    // Maybe slightly shorter suffices: "Customer satisfaction"
+    const titleOfQuery = "Customer satisfaction " + startDate.getDate() + "." + startMonth + "." + startDate.getFullYear() + "–" + endDate.getDate() + "." + endMonth + "." + endDate.getFullYear();
 
     async function loadData () {
 
         // Here's the place to edit the query, if needed
-        const startDate = props.dates[0];
-        const endDate = props.dates[1];
 
         const target = `https://hsl.louhin.com/api/1.1/data/350/content?variables=K3B&filter[PÄIVÄMÄÄRÄ]=` + startDate + "to" + endDate + `&LWSAccessKey=b21f0e72-de32-4cee-ab24-242eeba7726b`;
+
 
         // Specify that the data which we are fetching is in text/csv type.
         return await fetch( target, {
@@ -78,7 +88,7 @@ const FetchData = (props) => {
     return (
         <>
             {!dataIsLoaded && <LoadingBlock />}
-            {dataIsLoaded && <AnalysisBlock visualizationType = {props.type} data={dataFromQuery}/>}
+            {dataIsLoaded && <AnalysisBlock visualizationType = {props.type} data={dataFromQuery} name ={titleOfQuery}/>}
             {dataIsLoaded && <EmptyBlock />}
         </>
     );
