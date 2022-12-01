@@ -33,7 +33,7 @@ const FetchData = (props) => {
         const startDate = props.dates[0];
         const endDate = props.dates[1];
 
-        const target = `https://hsl.louhin.com/api/1.1/data/350/content?limit=1000&variables=K3B&filter[PÄIVÄMÄÄRÄ]=` + startDate + "to" + endDate + `&LWSAccessKey=b21f0e72-de32-4cee-ab24-242eeba7726b`;
+        const target = `https://hsl.louhin.com/api/1.1/data/350/content?variables=K3B&filter[PÄIVÄMÄÄRÄ]=` + startDate + "to" + endDate + `&LWSAccessKey=b21f0e72-de32-4cee-ab24-242eeba7726b`;
 
         // Specify that the data which we are fetching is in text/csv type.
         return await fetch( target, {
